@@ -1,0 +1,201 @@
+/* Comentário em CSS - Cascading Stylesheet */
+/* F12 no Chrome abre o DevTools */
+/* ALINHAMENTOS, ESPAÇAMENTOS, LARGURAS E ALTURAS */
+/* CTRL + N abre um novo arquivo no VS */
+
+/* Zera margens padrão do browser */
+
+/* GLOBAL */
+
+* {
+    /* obriga os elementos da tela a respeitarem o limite
+    de espaçamento padrão */
+    /* mantém o width de 100% apesar do padding */
+    box-sizing: border-box; 
+}
+
+h1, h2 {
+    color: #000000cc;
+}
+
+html, body {
+    margin: 0;
+}
+
+body {
+    display: flex; /* display só de linha ou coluna */
+    flex-direction: column; /* display só de coluna */
+
+    height: 100vh; /* vh: view port height - toda a altura da página */
+
+    /* https://fonts.google.com/ */
+    font-family: 'Roboto', sans-serif;
+
+    background-color: #f9f9f9;
+}
+
+/* TÍTULOS */
+header h1, main h2 {
+    margin-bottom: 70px;
+} 
+
+main h2 span {
+    color: #ff4f4f;
+}
+
+.form h2 {
+    text-align: center;
+    /* Transparência: de 0 a f - numeros e letras
+    incluída depois dos 6 hex da cor */
+    color: #ffffffee;  
+    font-size: 18px;
+}
+
+/* ESTRUTURA */
+/* alinhamento de textos */
+header, main, footer {
+    text-align: center;
+}
+
+header, .form, main {
+    /* espaçamentos com margem;
+    forma básica: 'margin-bottom: 70px;'; 
+    valores abaixo seguem o sentido horário: top, right, down, left
+    se citar somente 3 ou 2 elementos significa que top vale para down
+    e right vale para left 
+    'auto' se ajusta de acordo com o redimensionamento 
+    da janela do browser */
+    margin: 0 auto 70px;
+
+    /* limites dos elementos na página; 
+    pode ser em pixels ou porcentagem */
+    width: 90%;
+    max-width: 500px; /* limite dos 90% */
+        
+}
+
+/* HEADER */
+header button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: #ff4f4f;
+    color: white; /* ou #fff com 3 'f' basta */
+    font-weight: bold;
+}
+
+.logo {
+    width: 150px;
+    margin: 30px 0px;
+}
+
+header p {
+    font-size: 14px;
+}
+
+/* "section.donors" ou apenas ".donors" 
+mas "section.donors" tem preferência no código 
+se houver ambos */
+
+/* FORM */
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* espaçamento das colunas do grid */
+    grid-gap: 45px; 
+    align-items: center;
+    background-color: #ff4f4f;
+    padding: 16px 64px;
+    border-radius: 6px;
+}
+
+form input,
+form button {
+    /* larguras */
+    width: 100%;
+    /* espaçamentos */
+    margin-bottom: 4px;
+    /* preenchimento do elemento
+    pode citar: top, right, down e left 
+    ou apenas top e right que vale para os demais*/
+    padding: 8px 16px;
+    /* bordas */
+    border-radius: 4px;
+    /* Linha das caixas e botão 
+    espessura, cor e tipo (solid/dashed...) */
+    border: 1px #ffffff88 solid;
+
+}
+form input {
+    background-color: transparent;
+}
+
+form input::placeholder {
+    color: #ffffffaa;
+}
+
+form button {
+    font-weight: bold;
+}
+
+/* 'main ' é cascata no CSS 
+só pego o 'donors' que está em 'main ' */
+
+/* MAIN */
+main .donors {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /*  ou 20px */
+}
+
+.blood {
+    color: #ff4f4f;
+    font-weight: bold;
+    font-size: 12px;
+   
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+
+    /*flex-direction: column;*/
+}
+
+.blood::before{
+    content: "";
+    background-color:#ff4f4f11;
+    width: 40px;
+    height: 40px;
+    /* cria uma nova camada para o 'before' */
+    position: absolute;
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg)
+}
+
+.donor p {
+    margin-top: 24px;
+    margin-bottom: 64px;
+    font-size: 14px;
+}
+
+/* footer se ajusta ao tamanho do 
+body/janela, aumentando o espaço do topo */
+.footer {
+    margin-top: auto;
+    padding: 16px;
+    border: 1px solid #eee;  
+}
+
+/* funcionalidades com javascript */
+
+section.form {
+    transition: all 300ms;
+}
+
+section.form.hide {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin-top: -70px;
+}
